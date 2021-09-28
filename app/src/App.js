@@ -2,17 +2,20 @@ import * as React from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import Tasks from "./Tasks";
+import Posts from "./Posts";
 
+import "./styles/output.css";
 const App = () => (
   <>
     <nav>
-      <Link to="/">Home</Link> | <Link to="dashboard">Dashboard</Link>
+      <Link to="/">Home</Link> | <Link to="create">Create Posts </Link>|
+      <Link to="details"> Details</Link>
     </nav>
     <main>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/details" element={<DetailPost />} />
+        <Route path="/create" element={<CreatePost />} />
       </Routes>
     </main>
   </>
@@ -22,13 +25,19 @@ const Home = () => (
   <>
     <h1>{process.env.REACT_APP_TITLE}</h1>
     <h2>{process.env.REACT_APP_SUBTITLE}</h2>
-    <Tasks />
+    <Posts />
   </>
 );
 
-const Dashboard = () => (
+const CreatePost = () => (
   <>
-    <h1>Dashboard</h1>
+    <h1 className="text-red-900">This is where I will add posts</h1>
+  </>
+);
+
+const DetailPost = () => (
+  <>
+    <h1>One post details will go here</h1>
   </>
 );
 
