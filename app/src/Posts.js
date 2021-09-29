@@ -1,6 +1,13 @@
 import * as React from "react";
 
 import * as apiClient from "./apiClient";
+import Card from "./material-tailwind/components/Card";
+import CardBody from "./material-tailwind/components/CardBody";
+// import Button from "@material-tailwind/react/Button";
+import CardFooter from "./material-tailwind/components/CardFooter";
+import CardImage from "./material-tailwind/components/CardImage";
+import H6 from "./material-tailwind/components/Heading6";
+import Paragraph from "./material-tailwind/components/Paragraph";
 
 const Posts = () => {
   const [posts, setPosts] = React.useState([]);
@@ -22,16 +29,20 @@ const Posts = () => {
 
 const PostList = ({ posts }) => {
   return (
-    <div className="bg-gray-900 p-20 h-screen flex justify-center items-start flex-col">
-      <h1 className="text-5xl text-white">Hello Tailwind </h1>
-      <p className="text-gray-400 mt-5 text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-        consequuntur odio aut nobis ab quis? Reiciendis doloremque ut quo fugiat
-        eveniet tempora, atque alias earum ullam inventore itaque sapiente iste?
-      </p>
-      <button className="p-4 bg-green-600 rounded-lg font-bold text-white mt-5 hover:bg-gray-600">
-        Hello Friends
-      </button>
+    <div className="grid md:grid-cols-3 gap-4 m-10">
+      <>
+        {posts.map(({ id, title, category, content }) => (
+          <Card className="p-8">
+            <CardImage></CardImage>
+            <CardBody>
+              <H6>{title}</H6>
+              <Paragraph>{content}</Paragraph>
+              <CardFooter></CardFooter>
+            </CardBody>
+          </Card>
+        ))}
+        ;
+      </>
     </div>
   );
 };
@@ -66,32 +77,3 @@ const AddPost = ({ addPost }) => {
 };
 
 export default Posts;
-
-// {posts.map(({ id, title, category, content }) => (
-
-//   ))}
-//   ;
-
-// <div class="grid xl:grid-cols-4 md:grid-cols-2  grid-cols-1 gap-2 max-w-6xl">
-//           <div
-//             class="flex flex-col bg-gray-200 rounded-lg p-4 m-2"
-//             class="h-40 bg-gray-400 rounded-lg"
-//             style={{
-//               backgroundImage: 'url("https://i.imgur.com/ieOW7wf.jpeg")',
-//               backgroundRepeat: "no-repeat",
-//               backgroundAttachment: "cover",
-//               backgroundPosition: "center",
-//             }}
-//           ></div>
-//           <div className="flex flex-col items-start mt-4">
-//             <h4 className="text-xl font-semibold">{title}</h4>
-//             <h6 className="text-md font-semibold">{title}</h6>
-//             <p className="text-sm">{content}</p>
-//             <a
-//               className="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase"
-//               href="details"
-//             >
-//               Click Here
-//             </a>
-//           </div>
-//         </div>

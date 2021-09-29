@@ -3,8 +3,9 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import Posts from "./Posts";
+import H3 from "./material-tailwind/components/Heading3";
 
-import "./styles/output.css";
+import "./styles/index.css";
 const App = () => (
   <>
     <nav>
@@ -12,11 +13,14 @@ const App = () => (
       <Link to="details"> Details</Link>
     </nav>
     <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/details" element={<DetailPost />} />
-        <Route path="/create" element={<CreatePost />} />
-      </Routes>
+      <div className="container mx-auto">
+        <H3>Latest Posts</H3>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<DetailPost />} />
+          <Route path="/create" element={<CreatePost />} />
+        </Routes>
+      </div>
     </main>
   </>
 );

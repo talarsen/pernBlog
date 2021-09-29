@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
+    "build": "craco build",
     "eject": "react-scripts eject",
     "eslint": "eslint . --ext js,mjs",
     "start": "bin/start-server.sh",
-    "test": "react-scripts test"
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": [
@@ -32,19 +32,19 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^6.0.0-beta.4",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "*",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
+    "@craco/craco": "*",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.0.2",
-    "autoprefixer": "^10.3.6",
+    "autoprefixer": "^9.8.7",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "postcss": "^8.3.8",
-    "postcss-cli": "^9.0.1",
+    "postcss": "^7.0.38",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16"
   }
 }
