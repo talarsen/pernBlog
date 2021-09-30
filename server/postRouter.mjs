@@ -15,4 +15,14 @@ postRouter.post("/", async (request, response) => {
   response.status(201).json(post);
 });
 
+//get one post
+//not much different from get all but speicify params in route.
+postRouter.get("/", async (req, res) => {
+  try {
+    const post = await db.getOnePost();
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 export default postRouter;
