@@ -1,12 +1,13 @@
+/* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
+
+import { Link } from "react-router-dom";
 
 import * as apiClient from "./apiClient";
 import Card from "./material-tailwind/components/Card";
 import CardBody from "./material-tailwind/components/CardBody";
-// import Button from "@material-tailwind/react/Button";
-import CardFooter from "./material-tailwind/components/CardFooter";
 import CardImage from "./material-tailwind/components/CardImage";
-import H6 from "./material-tailwind/components/Heading6";
+import H3 from "./material-tailwind/components/Heading3";
 import Paragraph from "./material-tailwind/components/Paragraph";
 
 const Posts = () => {
@@ -31,13 +32,22 @@ const PostList = ({ posts }) => {
   return (
     <div className="grid md:grid-cols-3 gap-4 m-10">
       <>
-        {posts.map(({ id, title, category, content }) => (
+        {posts.map(({ id, imageurl, title, category, content }) => (
           <Card className="p-8">
-            <CardImage></CardImage>
+            <CardImage src={imageurl} alt="Card Image" />
             <CardBody>
-              <H6>{title}</H6>
+              <H3>{title}</H3>
               <Paragraph>{content}</Paragraph>
-              <CardFooter></CardFooter>
+              <div>
+                <Link to="details">
+                  {" "}
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Details
+                  </button>
+                </Link>
+
+                <p className="underline p-2 mr-10">Category: {category}</p>
+              </div>
             </CardBody>
           </Card>
         ))}
