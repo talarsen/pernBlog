@@ -14,7 +14,7 @@ const Posts = () => {
   const [posts, setPosts] = React.useState([]);
 
   const loadPosts = async () => setPosts(await apiClient.getPosts());
-  const addPost = (post) => apiClient.addPost(post).then(loadPosts);
+  // const addPost = (post) => apiClient.addPost(post).then(loadPosts);
 
   React.useEffect(() => {
     loadPosts();
@@ -23,7 +23,7 @@ const Posts = () => {
   return (
     <section>
       <PostList {...{ posts }} />
-      <AddPost {...{ addPost }} />
+      {/* <AddPost {...{ addPost }} /> */}
     </section>
   );
 };
@@ -39,7 +39,7 @@ const PostList = ({ posts }) => {
               <H3>{title}</H3>
               <Paragraph>{content}</Paragraph>
               <div>
-                <Link to="details">
+                <Link to="details" id={id}>
                   {" "}
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Details
@@ -57,33 +57,33 @@ const PostList = ({ posts }) => {
   );
 };
 
-const AddPost = ({ addPost }) => {
-  const [createPost, setcreatePost] = React.useState("");
+// const AddPost = ({ addPost }) => {
+//   const [createPost, setcreatePost] = React.useState("");
 
-  const canAdd = createPost !== "";
+//   const canAdd = createPost !== "";
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (canAdd) {
-      addPost(createPost);
-      setcreatePost("");
-    }
-  };
+//   const onSubmit = (e) => {
+//     e.preventDefault();
+//     if (canAdd) {
+//       addPost(createPost);
+//       setcreatePost("");
+//     }
+//   };
 
-  return (
-    <form>
-      <label>
-        New Post:{" "}
-        <input
-          onChange={(e) => setcreatePost(e.currentTarget.value)}
-          value={createPost}
-        />
-      </label>
-      <button onSubmit={onSubmit} disabled={!canAdd}>
-        Add
-      </button>
-    </form>
-  );
-};
+//   return (
+//     <form>
+//       <label>
+//         New Post:{" "}
+//         <input
+//           onChange={(e) => setcreatePost(e.currentTarget.value)}
+//           value={createPost}
+//         />
+//       </label>
+//       <button onSubmit={onSubmit} disabled={!canAdd}>
+//         Add
+//       </button>
+//     </form>
+//   );
+// };
 
 export default Posts;
