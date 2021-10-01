@@ -3,10 +3,19 @@ import pgp from "pg-promise";
 
 const db = initDb();
 
-export const getTasks = () => db.any("SELECT * FROM tasks");
+//get posts from database
+export const getPosts = () => db.any("SELECT * FROM posts");
 
-export const addTask = (name) =>
-  db.one("INSERT INTO tasks(name) VALUES(${name}) RETURNING *", { name });
+//get ONE post
+//not much different from get all but speicify params in route.
+export const getPost = () => db.any("SELECT * FROM post WHERE id = ${id}");
+
+//create post
+export const addPost = (title, category, content) =>
+  db.one(
+    "INSERT INTO posts(title, category,content ) VALUES(${title} ${category} ${content} ) RETURNING *",
+    { title, category, content },
+  );
 
 function initDb() {
   let connection;
