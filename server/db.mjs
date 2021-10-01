@@ -8,8 +8,7 @@ export const getPosts = () => db.any("SELECT * FROM posts");
 
 //get ONE post
 //not much different from get all but speicify params in route.
-export const getOneContact = () =>
-  db.any("SELECT * FROM post WHERE id = ${id}");
+export const getPost = () => db.any("SELECT * FROM post WHERE id = ${id}");
 
 //create post
 export const addPost = (title, category, content) =>
