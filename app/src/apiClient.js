@@ -1,7 +1,9 @@
 export const getPosts = () => _get("/api/posts");
 
-export const getPost = () => _get("/api/details");
+export const getPost = (id) => _get(`/api/posts/${id}`);
 
+//getPost() => [{}]
+//getPost() => {}
 export const addPost = (title, category, content) =>
   _post("/api/posts", { title, category, content });
 
