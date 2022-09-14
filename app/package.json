@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "craco build",
+    "build": "node_modules/.bin/craco build",
     "eject": "react-scripts eject",
     "eslint": "eslint . --ext js,mjs",
     "start": "bin/start-server.sh",
