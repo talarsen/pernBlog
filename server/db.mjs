@@ -7,13 +7,13 @@ const db = initDb();
 export const getPosts = () => db.any("SELECT * FROM posts");
 
 //get ONE post
-//not much different from get all but speicify params in route.
-export const getPost = () => db.any("SELECT * FROM post WHERE id = ${id}");
+//not much different from get all but specify params in route.
+export const getPost = (id) => db.one(`SELECT * FROM posts WHERE id = ${id}`);
 
 //create post
 export const addPost = (title, category, content) =>
   db.one(
-    "INSERT INTO posts(title, category,content ) VALUES(${title} ${category} ${content} ) RETURNING *",
+    "INSERT INTO posts(title, category,content ) VALUES(${title} ${category} ${content} ${postedOn} ) RETURNING *",
     { title, category, content },
   );
 

@@ -16,10 +16,10 @@ postRouter.post("/", async (request, response) => {
 });
 
 //get one post
-//not much different from get all but speicify params in route.
-postRouter.get("/details", async (req, res) => {
+postRouter.get("/:id", async (req, res) => {
   try {
-    const post = await db.getOnePost();
+    const id = req.params.id;
+    const post = await db.getPost(id);
     res.json(post);
   } catch (err) {
     console.error(err.message);

@@ -6,7 +6,6 @@ import postRouter from "./postRouter.mjs";
 const app = express();
 
 app.use("/api/posts", postRouter);
-app.use("/api/details", postRouter);
 
 // Do not comment out or delete this end point. The React development server
 // won't start until it pings this end point successfully.
